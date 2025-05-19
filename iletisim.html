@@ -55,6 +55,99 @@
       </div>
     </nav>
 
+    <div class="container content mt-5">
+      <h1 class="text-center mb-4 baslik-genel">İletişim Formu</h1>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="adsoyad" class="form-label">Ad Soyad:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="adsoyad"
+            name="adsoyad"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">E-posta:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="telefon" class="form-label">Telefon Numarası:</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="telefon"
+            name="telefon"
+            pattern="^\+?[0-9\s\-]{10,15}$"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label d-block">Cinsiyet:</label>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="cinsiyet"
+              id="erkek"
+              value="Erkek"
+              required
+            />
+            <label class="form-label" for="erkek">Erkek</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="cinsiyet"
+              id="kadin"
+              value="Kadın"
+            />
+            <label class="form-label" for="kadin">Kadın</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="mesaj" class="form-label">Mesaj:</label>
+          <textarea
+            class="form-control"
+            id="mesaj"
+            name="mesaj"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" id="onay" required />
+          <label class="form-label" for="onay">
+            Verilerimin form amacıyla kullanılmasına izin veriyorum.
+          </label>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-4 me-2">
+            Gönder
+          </button>
+          <button type="reset" class="btn btn-secondary px-4">Temizle</button>
+        </div>
+      </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center mt-5 p-3">
+      © 2025 Koray Akdere - İletişim Sayfası
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
