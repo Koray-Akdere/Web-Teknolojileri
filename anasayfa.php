@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['kullanici_no'])) {
+    header("Location: giris.php");
+    exit;
+}
+
+$kullanici_no = $_SESSION['kullanici_no'];
+?>
+
 <!DOCTYPE html>
 <html lang="tr">
   <head>
@@ -46,14 +57,14 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="iletisim.html">İletişim</a>
-            </li>
+            </li>         
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="container content mt-5 text-center">
-      <h1 class="baslik mb-4">Hoş Geldiniz!</h1>
+      <h1>Hoş Geldiniz, <?php echo htmlspecialchars($kullanici_no); ?>!</h1>
       <p class="aciklama fs-5">
         Kişisel web sitemde benim ve şehrim hakkında bilgiler yer almaktadır.
       </p>
@@ -68,3 +79,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
