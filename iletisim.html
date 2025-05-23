@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <title>İletişim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -45,52 +47,31 @@
               <a class="nav-link" href="ilgi-alanlarim.html">İlgi Alanlarım</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="iletisim.html">İletişim</a>
+              <a class="nav-link active" href="iletisim.html">İletişim</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container content mt-5">
+    <div class="container content mt-5 mb-5" id="app">
       <h1 class="text-center mb-4 baslik-genel">İletişim Formu</h1>
-      <form action="#" method="post" enctype="multipart/form-data">
+      <form id="form" onsubmit="return jsKontrol()" class="mb-4">
         <div class="mb-3">
-          <label for="adsoyad" class="form-label">Ad Soyad:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="adsoyad"
-            name="adsoyad"
-            required
-          />
+          <label class="form-label"><strong>Ad Soyad:</strong></label>
+          <input type="text" class="form-control" id="adsoyad" required />
         </div>
-
         <div class="mb-3">
-          <label for="email" class="form-label">E-posta:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            required
-          />
+          <label class="form-label"><strong>E-posta:</strong></label>
+          <input type="text" class="form-control" id="email" required />
         </div>
-
         <div class="mb-3">
-          <label for="telefon" class="form-label">Telefon Numarası:</label>
-          <input
-            type="tel"
-            class="form-control"
-            id="telefon"
-            name="telefon"
-            pattern="^\+?[0-9\s\-]{10,15}$"
-            required
-          />
+          <label class="form-label"><strong>Telefon:</strong></label>
+          <input type="text" class="form-control" id="telefon" required />
         </div>
-
         <div class="mb-3">
-          <label class="form-label d-block">Cinsiyet:</label>
+          <label class="form-label"><strong>Cinsiyet:</strong></label
+          ><br />
           <div class="form-check form-check-inline">
             <input
               class="form-check-input"
@@ -100,7 +81,7 @@
               value="Erkek"
               required
             />
-            <label class="form-label" for="erkek">Erkek</label>
+            <label class="form-check-label" for="erkek">Erkek</label>
           </div>
           <div class="form-check form-check-inline">
             <input
@@ -110,40 +91,140 @@
               id="kadin"
               value="Kadın"
             />
-            <label class="form-label" for="kadin">Kadın</label>
+            <label class="form-check-label" for="kadin">Kadın</label>
           </div>
         </div>
-
         <div class="mb-3">
-          <label for="mesaj" class="form-label">Mesaj:</label>
+          <label class="form-label"><strong>Mesaj:</strong></label>
           <textarea
             class="form-control"
             id="mesaj"
-            name="mesaj"
-            rows="4"
+            rows="5"
             required
           ></textarea>
         </div>
-
         <div class="form-check mb-4">
-          <input class="form-check-input" type="checkbox" id="onay" required />
-          <label class="form-label" for="onay">
-            Verilerimin form amacıyla kullanılmasına izin veriyorum.
-          </label>
+          <input type="checkbox" class="form-check-input" id="onay" required />
+          <label class="form-check-label" for="onay"
+            >Verilerimin kullanılmasına izin veriyorum.</label
+          >
         </div>
 
         <div class="text-center">
           <button type="submit" class="btn btn-success px-4 me-2">
             Gönder
           </button>
+          <button
+            type="button"
+            class="btn btn-primary px-4 me-2"
+            @click="vueKontrol"
+          >
+            Vue.js ile Gönder
+          </button>
           <button type="reset" class="btn btn-secondary px-4">Temizle</button>
         </div>
+        <p class="text-danger text-center mt-3" id="uyari"></p>
       </form>
     </div>
 
     <footer class="bg-dark text-white text-center mt-5 p-3">
       © 2025 Koray Akdere - İletişim Sayfası
     </footer>
+
+    <script>
+      function jsKontrol() {
+        const ad = document.getElementById("adsoyad").value.trim();
+        const mail = document.getElementById("email").value.trim();
+        const tel = document.getElementById("telefon").value.trim();
+        const mesaj = document.getElementById("mesaj").value.trim();
+        const onay = document.getElementById("onay").checked;
+        const cinsiyet = document.querySelector(
+          'input[name="cinsiyet"]:checked'
+        );
+
+        if (!ad || !mail || !tel || !mesaj || !onay || !cinsiyet) {
+          document.getElementById("uyari").textContent =
+            "Lütfen tüm alanları eksiksiz doldurun.";
+          return false;
+        }
+
+        const emailRegex = /^[\w.-]+@[\w.-]+\.\w+$/;
+        const telRegex = /^[0-9+\-\s]{10,15}$/;
+
+        if (!emailRegex.test(mail)) {
+          document.getElementById("uyari").textContent =
+            "Geçerli bir e-posta adresi girin.";
+          return false;
+        }
+
+        if (!telRegex.test(tel)) {
+          document.getElementById("uyari").textContent =
+            "Telefon numarası yalnızca rakam ve + içerebilir.";
+          return false;
+        }
+
+        const params = new URLSearchParams({
+          adsoyad: ad,
+          email: mail,
+          telefon: tel,
+          cinsiyet: cinsiyet.value,
+          mesaj: mesaj,
+        });
+
+        window.location.href = "form-sonuc.html?" + params.toString();
+        return false;
+      }
+    </script>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            hataMesaji: "",
+          };
+        },
+        methods: {
+          vueKontrol() {
+            const ad = document.getElementById("adsoyad").value.trim();
+            const mail = document.getElementById("email").value.trim();
+            const tel = document.getElementById("telefon").value.trim();
+            const mesaj = document.getElementById("mesaj").value.trim();
+            const onay = document.getElementById("onay").checked;
+            const cinsiyet = document.querySelector(
+              'input[name="cinsiyet"]:checked'
+            );
+
+            if (!ad || !mail || !tel || !mesaj || !onay || !cinsiyet) {
+              this.hataMesaji = "Vue: Lütfen tüm alanları doldurun!";
+              return;
+            }
+
+            const emailRegex = /^[\w.-]+@[\w.-]+\.\w+$/;
+            const telRegex = /^[0-9+\-\s]{10,15}$/;
+
+            if (!emailRegex.test(mail)) {
+              this.hataMesaji = "Vue: E-posta geçersiz.";
+              return;
+            }
+
+            if (!telRegex.test(tel)) {
+              this.hataMesaji = "Vue: Telefon formatı hatalı.";
+              return;
+            }
+
+            const params = new URLSearchParams({
+              adsoyad: ad,
+              email: mail,
+              telefon: tel,
+              cinsiyet: cinsiyet.value,
+              mesaj: mesaj,
+            });
+
+            window.location.href = "form-sonuc.html?" + params.toString();
+          },
+        },
+      }).mount("#app");
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   </body>
