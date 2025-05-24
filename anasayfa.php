@@ -35,7 +35,7 @@ $kullanici_no = $_SESSION['kullanici_no'];
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="anasayfa.html">Ana Sayfa</a>
+              <a class="nav-link" href="index.html">Ana Sayfa</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="hakkimda.html">Hakkımda</a>
