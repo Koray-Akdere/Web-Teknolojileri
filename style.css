@@ -1,24 +1,30 @@
+/* Slider görselleri için yükseklik, arka plan ve biçimlendirme */
 .slider-img {
   height: 450px;
   object-fit: contain;
   background-color: #000;
   border-radius: 10px;
 }
+
+/* Sayfa arka planı ve üst boşluk */
 body {
   background-color: #f0f8ff;
   margin-top: 80px;
 }
 
+/* Giriş sayfası dış çerçevesi */
 .giris-dis {
   display: flex;
   justify-content: center;
   padding-top: 200px;
 }
 
+/* Form etiketlerinin yazı boyutu */
 .form-label {
   font-size: 1.05rem;
 }
 
+/* Giriş kutusu stil ayarları */
 .giris {
   width: 100%;
   max-width: 400px;
@@ -28,27 +34,32 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Ana başlık */
 .baslik {
   font-size: 3rem;
   font-weight: 600;
 }
 
+/* Açıklama metinleri */
 .aciklama {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-.btn-lg {
+/* Buton boyutu ve kenar yuvarlama */
+.iletisim-butonu {
   padding: 12px 28px;
   font-size: 1.2rem;
   border-radius: 8px;
 }
 
+/* Not stili */
 .not {
   font-style: italic;
   color: #888;
 }
 
+/* Sayfa içerik alanı kutusu */
 .content {
   max-width: 1000px;
   margin: 120px auto 40px auto;
@@ -58,11 +69,13 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Sayfa genel başlık stili */
 .baslik-genel {
   font-size: 2.4rem;
   padding-bottom: 10px;
 }
 
+/* Bölüm başlığı stili */
 .ikinci-baslik {
   font-size: 1.8rem;
   color: #2c3e50;
@@ -71,6 +84,7 @@ body {
   margin-top: 40px;
 }
 
+/* Bilgi listesi */
 .bilgi-listesi {
   list-style-type: disc;
   padding-left: 1.2rem;
@@ -78,6 +92,12 @@ body {
   font-size: 1.05rem;
 }
 
+.bilgi-listesi li {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+/* Turizm listesi */
 .turizm-listesi {
   list-style: none;
   padding-left: 0;
@@ -91,10 +111,12 @@ body {
   color: #333;
 }
 
+/* Paragrafların yazı boyutu */
 p {
   font-size: 1.05rem;
 }
 
+/* Takım sayfası bölüm başlığı */
 .ikinci-takim-baslik {
   font-size: 1.8rem;
   margin-top: 40px;
@@ -103,11 +125,13 @@ p {
   padding-bottom: 6px;
 }
 
+/* Takım logosu */
 .takim-logo {
   max-width: 180px;
   height: auto;
 }
 
+/* Stadyum görseli */
 .stad-img {
   width: 100%;
   max-height: 400px;
@@ -115,6 +139,7 @@ p {
   border-radius: 10px;
 }
 
+/* Takım listesi */
 .takim-listesi {
   list-style-type: disc;
   padding-left: 1.2rem;
@@ -126,22 +151,13 @@ p {
   font-size: 1.05rem;
 }
 
-.bilgi-listesi {
-  list-style-type: disc;
-  padding-left: 1.2rem;
-  color: #333;
-}
-
-.bilgi-listesi li {
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-}
-
+/* Efes başlık özel boyutu */
 .efes-baslik {
   font-size: 2rem;
   padding-bottom: 10px;
 }
 
+/* Şehrim sayfası görselleri */
 .sehrim-img {
   width: 100%;
   max-height: 600px;
@@ -149,6 +165,7 @@ p {
   border-radius: 10px;
 }
 
+/* Özgeçmiş listesi */
 .cv-liste {
   padding-left: 1.2rem;
   font-size: 1.05rem;
@@ -156,6 +173,7 @@ p {
   color: #333;
 }
 
+/* Özgeçmiş başlıkları */
 .cv-baslik {
   font-size: 1.8rem;
   margin-top: 40px;
@@ -163,11 +181,13 @@ p {
   padding-bottom: 6px;
 }
 
+/* Form input ve textarea yuvarlama */
 input,
 textarea {
   border-radius: 10px;
 }
 
+/* Hakkımda görselleri */
 .hakkimda {
   width: 100%;
   max-height: 600px;
@@ -175,6 +195,7 @@ textarea {
   border-radius: 10px;
 }
 
+/* Film bölümü başlıkları */
 .film-sayfa {
   font-size: 1.8rem;
   color: #2c3e50;
@@ -183,11 +204,13 @@ textarea {
   margin-top: 40px;
 }
 
+/* Film kartları görselleri */
 .card-img-top {
   height: 400px;
   object-fit: cover;
 }
 
+/* Kart metni */
 .card-text {
   max-height: 120px;
   overflow-y: auto;
@@ -195,6 +218,7 @@ textarea {
   padding-right: 6px;
 }
 
+/* Kart yüksekliği */
 .card {
   height: 100%;
 }
