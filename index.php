@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="alert alert-danger text-center"><?php echo $hata; ?></div>
         <?php endif; ?>
 
-        <form action="giris.php" method="post">
+        <form action="index.php" method="post">
           <div class="mb-3">
             <label for="email" class="form-label">Kullanıcı Adı:</label>
             <input
