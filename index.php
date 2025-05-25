@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               class="form-control"
               placeholder="Kullanıcı adınızı girin"
               required
-              value="<?php echo htmlspecialchars($email); ?>" <!-- Girilen e-posta formda saklanır -->
+              value="<?php echo htmlspecialchars($email); ?>"
             />
           </div>
 
